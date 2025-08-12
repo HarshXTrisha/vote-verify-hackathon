@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
+import { useLanguage } from './contexts/LanguageContext';
+import { getTranslation } from './translations';
+import { useTranslation } from 'react-i18next';
+import { nameMapHiById } from './nameMapHi';
 import './App.css';
 
 function formatCurrencyINR(value) {
@@ -12,6 +16,9 @@ function formatCurrencyINR(value) {
 }
 
 function CandidateCard({ candidate, onQuickSummary, onToggleCompare, isCompared, stats }) {
+  const { language } = useLanguage();
+  const { i18n } = useTranslation();
+  const displayName = i18n.language === 'hi' ? (nameMapHiById[candidate.id] || candidate.name) : candidate.name;
   const assetsFormatted = `₹${formatCurrencyINR(candidate.assets_inr)}`;
   const liabilitiesFormatted = `₹${formatCurrencyINR(candidate.liabilities_inr)}`;
   const hasCriminalCases = Number(candidate.criminal_cases) > 0;
@@ -19,10 +26,10 @@ function CandidateCard({ candidate, onQuickSummary, onToggleCompare, isCompared,
                      (candidate.party || '').toLowerCase().includes('bjp') ? 'bjp' : '';
   const badges = [];
   if (stats && Number(candidate.assets_inr) > 2 * stats.averageAssets) {
-    badges.push({ label: 'High Assets', type: 'asset' });
+    badges.push({ label: getTranslation(language, 'highAssets'), type: 'asset' });
   }
   if (Number(candidate.criminal_cases) > 2) {
-    badges.push({ label: 'High Criminal Case Count', type: 'case' });
+    badges.push({ label: getTranslation(language, 'highCriminalCaseCount'), type: 'case' });
   }
 
   return (
@@ -36,7 +43,7 @@ function CandidateCard({ candidate, onQuickSummary, onToggleCompare, isCompared,
           <img className="candidate-photo" src={candidate.photo_url} alt={candidate.name} />
           <div>
             <div className="title-row">
-              <h3 className="candidate-name">{candidate.name}</h3>
+              <h3 className="candidate-name">{displayName}</h3>
               <span className={`party-badge ${partyClass}`}>{candidate.party}</span>
             </div>
             <p className="constituency">{candidate.constituency}</p>
@@ -52,11 +59,11 @@ function CandidateCard({ candidate, onQuickSummary, onToggleCompare, isCompared,
             </div>
           )}
           <div className="stat-pill">
-            <span className="stat-label">Assets</span>
+            <span className="stat-label">{getTranslation(language, 'assets')}</span>
             <span className="stat-value">{assetsFormatted}</span>
           </div>
           <div className={`stat-pill ${hasCriminalCases ? 'danger' : 'success'}`}>
-            <span className="stat-label">Criminal cases</span>
+            <span className="stat-label">{getTranslation(language, 'criminalCases')}</span>
             <span className="stat-value">
               {hasCriminalCases ? (
                 <FaExclamationTriangle className="icon danger" aria-label="Has criminal cases" title="Has criminal cases" />
@@ -67,12 +74,12 @@ function CandidateCard({ candidate, onQuickSummary, onToggleCompare, isCompared,
             </span>
           </div>
           <div className="stat-pill">
-            <span className="stat-label">Liabilities</span>
+            <span className="stat-label">{getTranslation(language, 'liabilities')}</span>
             <span className="stat-value">{liabilitiesFormatted}</span>
           </div>
           <div className="stat-pill">
-            <span className="stat-label">Education</span>
-            <span className="stat-value">{candidate.education || '—'}</span>
+            <span className="stat-label">{getTranslation(language, 'education')}</span>
+            <span className="stat-value">{candidate.education || getTranslation(language, 'dash')}</span>
           </div>
         </div>
       </Link>
@@ -80,12 +87,12 @@ function CandidateCard({ candidate, onQuickSummary, onToggleCompare, isCompared,
       <div className="card-actions">
         {candidate.myneta_url && (
           <a className="btn" href={candidate.myneta_url} target="_blank" rel="noopener noreferrer">
-            View affidavit
+            {getTranslation(language, 'viewAffidavit')}
           </a>
         )}
         {candidate.plainLanguageSummary && (
           <button className="btn primary" onClick={() => onQuickSummary && onQuickSummary(candidate)}>
-            Quick summary
+            {getTranslation(language, 'quickSummary')}
           </button>
         )}
         <label className="compare-check">
@@ -94,7 +101,7 @@ function CandidateCard({ candidate, onQuickSummary, onToggleCompare, isCompared,
             checked={!!isCompared}
             onChange={() => onToggleCompare && onToggleCompare(candidate)}
           />
-          Compare
+          {getTranslation(language, 'compare')}
         </label>
       </div>
     </div>

@@ -1,0 +1,85 @@
+{
+  "app_title": "Jan Saarthi",
+  "app_subtitle": "Your guide to informed voting decisions",
+
+  "search_placeholder": "Search by name, party, or constituency",
+
+  "compare": "Compare",
+  "compare_candidates": "Compare Candidates",
+  "select_at_least_2_to_compare": "Select at least 2 to compare",
+
+  "hero_title": "Discover and compare candidates",
+  "hero_subtitle": "Search, filter and inspect affidavits to make informed choices.",
+  "total_candidates": "Total candidates",
+  "visible": "Visible",
+
+  "filter_all": "All",
+  "filter_inc": "INC",
+  "filter_bjp": "BJP",
+
+  "sort": "Sort",
+  "relevance": "Relevance",
+  "assets_high_to_low": "Assets: High to Low",
+  "assets_low_to_high": "Assets: Low to High",
+  "name_a_to_z": "Name: A to Z",
+
+  "no_candidates_found": "No candidates found",
+  "try_adjusting_filters": "Try adjusting your search or filters.",
+  "clear_search_filters": "Clear search & filters",
+
+  "party": "Party",
+  "constituency": "Constituency",
+  "profession": "Profession",
+  "assets": "Assets",
+  "liabilities": "Liabilities",
+  "criminal_cases": "Criminal cases",
+  "education": "Education",
+  "affidavit": "Affidavit",
+  "open": "Open",
+  "close": "Close",
+
+  "no_summary_available": "No summary available.",
+
+  "data_last_updated": "Data last updated on:",
+  "report_issue": "Report an Issue",
+
+  "high_assets": "High Assets",
+  "high_criminal_case_count": "High Criminal Case Count",
+
+  "view_affidavit": "View affidavit",
+  "quick_summary": "Quick summary",
+
+  "dash": "—",
+
+  "back_to_all_candidates": "← Back to all candidates",
+  "movable_assets": "Movable Assets",
+  "immovable_assets": "Immovable Assets",
+
+  "overview": "Overview",
+  "criminal_case_details": "Criminal Case Details",
+  "cases_reported": "cases reported.",
+  "no_criminal_cases_reported": "No criminal cases reported.",
+  "view_details": "View Details",
+  "data_not_available": "Data not available.",
+
+  "cash": "Cash",
+  "bank_deposits": "Bank Deposits",
+  "bonds_shares": "Bonds/Shares",
+  "vehicles": "Vehicles",
+  "jewellery": "Jewellery",
+
+  "agricultural_land": "Agricultural Land",
+  "non_agricultural_land": "Non-Agricultural Land",
+  "commercial_buildings": "Commercial Buildings",
+  "residential_buildings": "Residential Buildings",
+
+  "movable_assets_breakdown": "Movable Assets Breakdown",
+  "immovable_assets_breakdown": "Immovable Assets Breakdown",
+
+  "income_history_from_itr": "Income History (from ITR)",
+  "view_official_affidavit_on_myneta": "View Official Affidavit on MyNeta",
+
+  "case": "Case",
+  "charge_details_not_provided": "Charge details not provided",
+  "no_detailed_case_info": "No detailed case information available."
+}

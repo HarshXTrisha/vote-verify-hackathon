@@ -3,8 +3,15 @@ import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import CandidateCard from './CandidateCard';
 import CandidateDetail from './CandidateDetail';
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import { getTranslation } from './translations';
+import { useTranslation } from 'react-i18next';
+import { nameMapHiById } from './nameMapHi';
 
-function App() {
+function AppContent() {
+  const { language } = useLanguage();
+  const { i18n } = useTranslation();
+  const [langPulse, setLangPulse] = useState(false);
   const [candidates, setCandidates] = useState([]);
   const [query, setQuery] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,6 +31,13 @@ function App() {
       return new Date().toISOString().slice(0, 10);
     }
   }, []);
+
+  const handleLangChange = (lng) => {
+    if (i18n.language === lng) return;
+    setLangPulse(true);
+    i18n.changeLanguage(lng);
+    window.setTimeout(() => setLangPulse(false), 220);
+  };
 
   useEffect(() => {
     setIsLoading(true);
@@ -169,12 +183,27 @@ function App() {
                     style={{ objectFit: 'contain' }}
                   />
                 </span>
-                <h1>Jan Saarthi</h1>
+                <h1>{getTranslation(language, 'appTitle')}</h1>
               </div>
             </Link>
-            <p>Your guide to informed voting decisions</p>
+            <p>{getTranslation(language, 'appSubtitle')}</p>
           </div>
           <div className="actions">
+            {/* i18next language buttons with animation */}
+            <div className={`lang-buttons ${i18n.language === 'hi' ? 'hi' : ''} ${langPulse ? 'pulse' : ''}`}>
+              <button
+                className={`btn ${i18n.language === 'en' ? 'primary' : ''}`}
+                onClick={() => handleLangChange('en')}
+              >
+                English
+              </button>
+              <button
+                className={`btn ${i18n.language === 'hi' ? 'primary' : ''}`}
+                onClick={() => handleLangChange('hi')}
+              >
+                हिंदी
+              </button>
+            </div>
             <div className="search-wrapper">
               <svg className="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M21 21l-4.35-4.35" stroke="#64748b" strokeWidth="2" strokeLinecap="round" />
@@ -182,7 +211,7 @@ function App() {
               </svg>
               <input
                 className="search-input"
-                placeholder="Search by name, party, or constituency"
+                placeholder={getTranslation(language, 'searchPlaceholder')}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 aria-label="Search candidates"
@@ -201,7 +230,7 @@ function App() {
             </div>
             {comparisonList.length >= 2 && (
               <button className="btn primary header-compare" onClick={openCompare}>
-                Compare ({comparisonList.length})
+                {getTranslation(language, 'compareButton')} ({comparisonList.length})
               </button>
             )}
           </div>
@@ -216,17 +245,17 @@ function App() {
               <section className="hero">
                 <div className="hero-inner">
                   <div className="hero-copy">
-                    <h2 className="hero-title">Discover and compare candidates</h2>
-                    <p className="hero-sub">Search, filter and inspect affidavits to make informed choices.</p>
+                    <h2 className="hero-title">{getTranslation(language, 'heroTitle')}</h2>
+                    <p className="hero-sub">{getTranslation(language, 'heroSubtitle')}</p>
                   </div>
                   <div className="hero-stats">
                     <div className="hero-stat">
                       <div className="hero-stat-value">{candidates.length}</div>
-                      <div className="hero-stat-label">Total candidates</div>
+                      <div className="hero-stat-label">{getTranslation(language, 'totalCandidates')}</div>
                     </div>
                     <div className="hero-stat">
                       <div className="hero-stat-value">{visibleCandidates.length}</div>
-                      <div className="hero-stat-label">Visible</div>
+                      <div className="hero-stat-label">{getTranslation(language, 'visible')}</div>
                     </div>
                   </div>
                 </div>
@@ -237,28 +266,28 @@ function App() {
                   <button
                     className={`chip-filter ${partyFilter === 'all' ? 'active' : ''}`}
                     onClick={() => setPartyFilter('all')}
-                  >All</button>
+                  >{getTranslation(language, 'all')}</button>
                   <button
                     className={`chip-filter ${partyFilter === 'inc' ? 'active' : ''}`}
                     onClick={() => setPartyFilter('inc')}
-                  >INC</button>
+                  >{getTranslation(language, 'inc')}</button>
                   <button
                     className={`chip-filter ${partyFilter === 'bjp' ? 'active' : ''}`}
                     onClick={() => setPartyFilter('bjp')}
-                  >BJP</button>
+                  >{getTranslation(language, 'bjp')}</button>
                 </div>
                 <div className="filters-right">
-                  <label className="select-label" htmlFor="sortBy">Sort</label>
+                  <label className="select-label" htmlFor="sortBy">{getTranslation(language, 'sort')}</label>
                   <select
                     id="sortBy"
                     className="select"
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
                   >
-                    <option value="relevance">Relevance</option>
-                    <option value="assets_desc">Assets: High to Low</option>
-                    <option value="assets_asc">Assets: Low to High</option>
-                    <option value="name_asc">Name: A to Z</option>
+                    <option value="relevance">{getTranslation(language, 'relevance')}</option>
+                    <option value="assets_desc">{getTranslation(language, 'assetsHighToLow')}</option>
+                    <option value="assets_asc">{getTranslation(language, 'assetsLowToHigh')}</option>
+                    <option value="name_asc">{getTranslation(language, 'nameAZ')}</option>
                   </select>
                 </div>
               </div>
@@ -271,10 +300,10 @@ function App() {
                 </div>
               ) : visibleCandidates.length === 0 ? (
                 <div className="empty">
-                  <div className="empty-title">No candidates found</div>
-                  <div className="empty-sub">Try adjusting your search or filters.</div>
+                  <div className="empty-title">{getTranslation(language, 'noCandidatesFound')}</div>
+                  <div className="empty-sub">{getTranslation(language, 'tryAdjustingFilters')}</div>
                   <div className="empty-actions">
-                    <button className="btn" onClick={() => { setQuery(''); setPartyFilter('all'); setSortBy('relevance'); }}>Clear search & filters</button>
+                    <button className="btn" onClick={() => { setQuery(''); setPartyFilter('all'); setSortBy('relevance'); }}>{getTranslation(language, 'clearSearchFilters')}</button>
                   </div>
                 </div>
               ) : (
@@ -282,7 +311,10 @@ function App() {
                   {visibleCandidates.map(candidate => (
                     <CandidateCard
                       key={candidate.id}
-                      candidate={candidate}
+                      candidate={{
+                        ...candidate,
+                        name: i18n.language === 'hi' ? (nameMapHiById[candidate.id] || candidate.name) : candidate.name
+                      }}
                       onQuickSummary={openSummary}
                       onToggleCompare={toggleCompare}
                       isCompared={comparisonList.some(c => c.id === candidate.id)}
@@ -310,10 +342,10 @@ function App() {
               <h3 id="summary-title" className="modal-title">{selectedCandidate.name}</h3>
             </div>
             <div className="modal-body">
-              <p>{selectedCandidate.plainLanguageSummary || 'No summary available.'}</p>
+              <p>{selectedCandidate.plainLanguageSummary || getTranslation(language, 'noSummaryAvailable')}</p>
             </div>
             <div className="modal-footer">
-              <button className="btn" onClick={closeModal}>Close</button>
+              <button className="btn" onClick={closeModal}>{getTranslation(language, 'close')}</button>
             </div>
           </div>
         </div>
@@ -329,7 +361,7 @@ function App() {
         >
           <div className="modal wide" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
-              <h3 id="compare-title" className="modal-title">Compare Candidates</h3>
+              <h3 id="compare-title" className="modal-title">{getTranslation(language, 'compareCandidates')}</h3>
             </div>
             <div className="modal-body">
               {/* Mobile stacked cards */}
@@ -337,13 +369,13 @@ function App() {
                 {comparisonList.map((cand) => (
                   <div key={cand.id} className="compare-card">
                     <h4>{cand.name}</h4>
-                    <div className="compare-row"><div>Party</div><div>{cand.party}</div></div>
-                    <div className="compare-row"><div>Constituency</div><div>{cand.constituency || '—'}</div></div>
-                    <div className="compare-row"><div>Profession</div><div>{cand.profession || '—'}</div></div>
-                    <div className="compare-row"><div>Assets</div><div>₹{formatCurrencyINR(cand.assets_inr)}</div></div>
-                    <div className="compare-row"><div>Liabilities</div><div>₹{formatCurrencyINR(cand.liabilities_inr)}</div></div>
-                    <div className="compare-row"><div>Criminal cases</div><div>{cand.criminal_cases}</div></div>
-                    <div className="compare-row"><div>Education</div><div>{cand.education || '—'}</div></div>
+                    <div className="compare-row"><div>{getTranslation(language, 'party')}</div><div>{cand.party}</div></div>
+                    <div className="compare-row"><div>{getTranslation(language, 'constituency')}</div><div>{cand.constituency || getTranslation(language, 'dash')}</div></div>
+                    <div className="compare-row"><div>{getTranslation(language, 'profession')}</div><div>{cand.profession || getTranslation(language, 'dash')}</div></div>
+                    <div className="compare-row"><div>{getTranslation(language, 'assets')}</div><div>₹{formatCurrencyINR(cand.assets_inr)}</div></div>
+                    <div className="compare-row"><div>{getTranslation(language, 'liabilities')}</div><div>₹{formatCurrencyINR(cand.liabilities_inr)}</div></div>
+                    <div className="compare-row"><div>{getTranslation(language, 'criminalCases')}</div><div>{cand.criminal_cases}</div></div>
+                    <div className="compare-row"><div>{getTranslation(language, 'education')}</div><div>{cand.education || getTranslation(language, 'dash')}</div></div>
                   </div>
                 ))}
               </div>
@@ -369,48 +401,48 @@ function App() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Constituency</td>
+                      <td>{getTranslation(language, 'constituency')}</td>
                       {comparisonList.map((cand) => (
-                        <td key={cand.id}>{cand.constituency || '—'}</td>
+                        <td key={cand.id}>{cand.constituency || getTranslation(language, 'dash')}</td>
                       ))}
                     </tr>
                     <tr>
-                      <td>Profession</td>
+                      <td>{getTranslation(language, 'profession')}</td>
                       {comparisonList.map((cand) => (
-                        <td key={cand.id}>{cand.profession || '—'}</td>
+                        <td key={cand.id}>{cand.profession || getTranslation(language, 'dash')}</td>
                       ))}
                     </tr>
                     <tr>
-                      <td>Assets</td>
+                      <td>{getTranslation(language, 'assets')}</td>
                       {comparisonList.map((cand) => (
                         <td key={cand.id}>₹{formatCurrencyINR(cand.assets_inr)}</td>
                       ))}
                     </tr>
                     <tr>
-                      <td>Liabilities</td>
+                      <td>{getTranslation(language, 'liabilities')}</td>
                       {comparisonList.map((cand) => (
                         <td key={cand.id}>₹{formatCurrencyINR(cand.liabilities_inr)}</td>
                       ))}
                     </tr>
                     <tr>
-                      <td>Criminal cases</td>
+                      <td>{getTranslation(language, 'criminalCases')}</td>
                       {comparisonList.map((cand) => (
                         <td key={cand.id}>{cand.criminal_cases}</td>
                       ))}
                     </tr>
                     <tr>
-                      <td>Education</td>
+                      <td>{getTranslation(language, 'education')}</td>
                       {comparisonList.map((cand) => (
-                        <td key={cand.id}>{cand.education || '—'}</td>
+                        <td key={cand.id}>{cand.education || getTranslation(language, 'dash')}</td>
                       ))}
                     </tr>
                     <tr>
-                      <td>Affidavit</td>
+                      <td>{getTranslation(language, 'affidavit')}</td>
                       {comparisonList.map((cand) => (
                         <td key={cand.id}>
                           {cand.myneta_url ? (
-                            <a href={cand.myneta_url} target="_blank" rel="noreferrer">Open</a>
-                          ) : '—'}
+                            <a href={cand.myneta_url} target="_blank" rel="noreferrer">{getTranslation(language, 'open')}</a>
+                          ) : getTranslation(language, 'dash')}
                         </td>
                       ))}
                     </tr>
@@ -419,7 +451,27 @@ function App() {
               </div>
             </div>
             <div className="modal-footer">
-              <button className="btn" onClick={closeModal}>Close</button>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                <button className="btn" onClick={closeModal}>{getTranslation(language, 'close')}</button>
+                <button
+                  type="button"
+                  className="btn whatsapp"
+                  onClick={() => {
+                    if (!comparisonList || comparisonList.length < 2) return;
+                    const [a, b] = comparisonList;
+                    const text = `Check out this direct comparison between ${a.name} and ${b.name} on Jan Saarthi! See the details here: https://vote-verify-hackathon.vercel.app/ - Shared by harshvardhan singh`;
+                    const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                  }}
+                >
+                  <span className="wa-icon" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+                      <path d="M19.11 17.27c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.64.14-.19.28-.73.9-.9 1.08-.17.19-.35.21-.64.07-.28-.14-1.19-.44-2.26-1.4-.84-.75-1.4-1.68-1.57-1.96-.16-.28-.02-.43.12-.57.12-.12.28-.3.42-.45.14-.16.19-.26.28-.43.09-.17.05-.32-.02-.45-.07-.14-.64-1.54-.88-2.11-.23-.55-.46-.48-.64-.49-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.77.35-.26.28-1 1-1 2.43 0 1.43 1.03 2.82 1.17 3 .14.19 2.03 3.1 4.92 4.28.69.3 1.24.48 1.67.61.7.22 1.34.19 1.85.11.56-.08 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.11-.26-.18-.54-.32zM26.76 5.24C23.82 2.31 20.03.75 16 .75 7.32.75.25 7.83.25 16.5c0 2.84.74 5.61 2.14 8.06L.76 31.25l6.89-1.58c2.39 1.31 5.1 2 7.85 2h.01c8.67 0 15.75-7.08 15.75-15.75 0-3.98-1.55-7.73-4.5-10.68zM16.5 29.18h-.01c-2.45 0-4.85-.66-6.94-1.92l-.5-.3-4.09.94.87-3.98-.33-.51c-1.33-2.13-2.03-4.6-2.03-7.07 0-7.42 6.04-13.46 13.46-13.46 3.59 0 6.97 1.4 9.51 3.95 2.54 2.54 3.95 5.92 3.95 9.51 0 7.42-6.04 13.46-13.46 13.46z" />
+                    </svg>
+                  </span>
+                  Share on WhatsApp
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -441,24 +493,32 @@ function App() {
             onClick={openCompare}
             disabled={comparisonList.length < 2}
           >
-            {comparisonList.length < 2 ? 'Select at least 2 to compare' : `Compare (${comparisonList.length})`}
+            {comparisonList.length < 2 ? getTranslation(language, 'selectAtLeast2') : `${getTranslation(language, 'compareButton')} (${comparisonList.length})`}
           </button>
         </div>
       )}
 
       <footer className="site-footer">
         <div className="footer-inner">
-          <span>Data last updated on: {todayString}</span>
+          <span>{getTranslation(language, 'dataLastUpdated')} {todayString}</span>
           <a
             href={
               `mailto:report@janssaarthi.app?subject=${encodeURIComponent('Issue Report: Jan Saarthi')}&body=${encodeURIComponent('Describe the issue you found:\n\nPage/URL: \nSteps to reproduce: \nExpected result: \nActual result: \nScreenshots (if any): ')}`
             }
           >
-            Report an Issue
+            {getTranslation(language, 'reportIssue')}
           </a>
         </div>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }
 

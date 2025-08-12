@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Jan Saarthi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Digital Independence for Informed Democracy
 
-## Available Scripts
+[Live Demo](https://vote-verify-hackathon.vercel.app/)
 
-In the project directory, you can run:
+## Overview
+Jan Saarthi empowers voters with clean, verifiable, and comparable candidate data. It turns complex affidavits into a modern, mobile-friendly experience with AI summaries and rich visualizations.
 
-### `npm start`
+Built for the IIMB BBA(DBE) Vibecoding Hackathon (Independence Day Edition) under the theme: "Digital Independence - Innovating for a Better Tomorrow."
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+- Detailed candidate profiles: assets, liabilities, education, profession, criminal cases, affidavits
+- Visualizations: asset breakdown (pie), income history (bar)
+- AI summaries: plain-language highlights for each candidate
+- Side-by-side comparison: compare candidates on key metrics
+- Criminal case modal: view details, if any
+- Direct affidavit links: verify instantly via official documents
+- Language toggle: English/Hindi with animated segmented control
+- Hindi display names: localized candidate names when Hindi is selected
+- WhatsApp sharing: share individual profiles and comparison view
+- Social link preview: Open Graph/Twitter Card set to custom app logo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
+- React (Create React App), React Router
+- Chart.js
+- i18next + react-i18next + i18next-http-backend
+- Custom CSS
+- Deployed on Vercel
 
-### `npm test`
+## Getting Started
+Prerequisites: Node.js 14+
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install and run:
+```bash
+npm install
+npm start
+```
+Build:
+```bash
+npm run build
+```
 
-### `npm run build`
+## Key Files
+- Data: `public/candidates.json`
+- App: `src/App.js`, `src/App.css`
+- Cards & details: `src/CandidateCard.js`, `src/CandidateDetail.js`
+- Charts: `src/AssetChart.js`, `src/IncomeChart.js`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Internationalization (English/Hindi)
+- Config: `src/i18n.js`
+- Translations: `public/locales/en/translation.json`, `public/locales/hi/translation.json`
+- Toggle: animated segmented control in header (`.lang-buttons`)
+- Hindi names map: `src/nameMapHi.js` (extend with `id: 'हिंदी नाम'`)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Use in components:
+```js
+import { useTranslation } from 'react-i18next';
+const { t } = useTranslation();
+return <span>{t('assets')}</span>;
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## WhatsApp Sharing
+- Profile share (in `src/CandidateDetail.js`): green "Share Profile" button builds a message with name, assets, liabilities, cases, then opens `https://wa.me/?text=...` in new tab.
+- Comparison share (in `src/App.js` modal): green "Share on WhatsApp" button shares two selected candidates.
+- Styles: `.btn.whatsapp` in `src/App.css` (green gradient, shine effect, round icon chip).
 
-### `npm run eject`
+## Social Preview (OG/Twitter)
+- Configured in `public/index.html`:
+  - `og:image`, `twitter:image` → `%PUBLIC_URL%/Gemini_Generated_Image_ngtua4ngtua4ngtu.png`
+- After deploy, refresh caches using platform debuggers.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Data Provenance
+All data is sourced from public affidavits on [MyNeta](https://myneta.info), provided by the Election Commission of India (ECI). This tool is informational; please cross-verify via the official links.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
+- Add/extend translations under `public/locales/<lng>/translation.json`
+- Add Hindi names in `src/nameMapHi.js`
+- PRs for features/fixes are welcome
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## License
+MIT
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgments
+- Election Commission of India (ECI) and MyNeta
+- IIMB BBA(DBE) Vibecoding Hackathon
+- Cursor AI for development assistance

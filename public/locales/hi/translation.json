@@ -1,0 +1,85 @@
+{
+  "app_title": "जन सारथी",
+  "app_subtitle": "सूचित मतदान निर्णयों के लिए आपका मार्गदर्शक",
+
+  "search_placeholder": "नाम, पार्टी या निर्वाचन क्षेत्र से खोजें",
+
+  "compare": "तुलना करें",
+  "compare_candidates": "उम्मीदवारों की तुलना करें",
+  "select_at_least_2_to_compare": "तुलना के लिए कम से कम 2 चुनें",
+
+  "hero_title": "उम्मीदवारों को खोजें और तुलना करें",
+  "hero_subtitle": "सूचित विकल्प बनाने के लिए खोजें, फ़िल्टर करें और शपथ पत्रों का निरीक्षण करें।",
+  "total_candidates": "कुल उम्मीदवार",
+  "visible": "दिखाई दे रहे",
+
+  "filter_all": "सभी",
+  "filter_inc": "कांग्रेस",
+  "filter_bjp": "भाजपा",
+
+  "sort": "क्रमबद्ध करें",
+  "relevance": "प्रासंगिकता",
+  "assets_high_to_low": "संपत्ति: उच्च से निम्न",
+  "assets_low_to_high": "संपत्ति: निम्न से उच्च",
+  "name_a_to_z": "नाम: ए से जेड",
+
+  "no_candidates_found": "कोई उम्मीदवार नहीं मिला",
+  "try_adjusting_filters": "अपनी खोज या फ़िल्टर को समायोजित करने का प्रयास करें।",
+  "clear_search_filters": "खोज और फ़िल्टर साफ़ करें",
+
+  "party": "पार्टी",
+  "constituency": "निर्वाचन क्षेत्र",
+  "profession": "पेशा",
+  "assets": "संपत्ति",
+  "liabilities": "देनदारियां",
+  "criminal_cases": "आपराधिक मामले",
+  "education": "शिक्षा",
+  "affidavit": "शपथ पत्र",
+  "open": "खोलें",
+  "close": "बंद करें",
+
+  "no_summary_available": "कोई सारांश उपलब्ध नहीं है।",
+
+  "data_last_updated": "डेटा अंतिम अपडेट:",
+  "report_issue": "समस्या रिपोर्ट करें",
+
+  "high_assets": "उच्च संपत्ति",
+  "high_criminal_case_count": "उच्च आपराधिक मामलों की संख्या",
+
+  "view_affidavit": "शपथ पत्र देखें",
+  "quick_summary": "त्वरित सारांश",
+
+  "dash": "—",
+
+  "back_to_all_candidates": "← सभी उम्मीदवारों पर वापस जाएं",
+  "movable_assets": "चल संपत्ति",
+  "immovable_assets": "अचल संपत्ति",
+
+  "overview": "सारांश",
+  "criminal_case_details": "आपराधिक मामला विवरण",
+  "cases_reported": "मामले दर्ज।",
+  "no_criminal_cases_reported": "कोई आपराधिक मामले दर्ज नहीं।",
+  "view_details": "विवरण देखें",
+  "data_not_available": "डेटा उपलब्ध नहीं है।",
+
+  "cash": "नकद",
+  "bank_deposits": "बैंक जमा",
+  "bonds_shares": "बॉन्ड/शेयर",
+  "vehicles": "वाहन",
+  "jewellery": "आभूषण",
+
+  "agricultural_land": "कृषि भूमि",
+  "non_agricultural_land": "गैर-कृषि भूमि",
+  "commercial_buildings": "वाणिज्यिक भवन",
+  "residential_buildings": "आवासीय भवन",
+
+  "movable_assets_breakdown": "चल संपत्ति का विभाजन",
+  "immovable_assets_breakdown": "अचल संपत्ति का विभाजन",
+
+  "income_history_from_itr": "आय इतिहास (आईटीआर से)",
+  "view_official_affidavit_on_myneta": "मायनेटा पर आधिकारिक शपथ पत्र देखें",
+
+  "case": "मामला",
+  "charge_details_not_provided": "आरोपों का विवरण उपलब्ध नहीं",
+  "no_detailed_case_info": "विस्तृत मामले की जानकारी उपलब्ध नहीं।"
+}
