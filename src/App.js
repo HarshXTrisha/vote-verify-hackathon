@@ -15,6 +15,10 @@ function App() {
   const searchInputRef = useRef(null);
   const [sortBy, setSortBy] = useState('relevance'); // 'relevance' | 'assets_desc' | 'assets_asc' | 'name_asc'
   const [partyFilter, setPartyFilter] = useState('all'); // 'all' | 'inc' | 'bjp'
+  const cursorRef = useRef(null);
+  const cursorPosRef = useRef({ x: 0, y: 0 });
+  const cursorTargetRef = useRef({ x: 0, y: 0 });
+  const rafRef = useRef(0);
 
   useEffect(() => {
     setIsLoading(true);
@@ -64,12 +68,14 @@ function App() {
     setSelectedCandidate(candidate);
     setModalType('summary');
     setIsModalOpen(true);
+    document.body.classList.add('no-scroll');
   }
 
   function closeModal() {
     setIsModalOpen(false);
     setSelectedCandidate(null);
     setModalType(null);
+    document.body.classList.remove('no-scroll');
   }
 
   function toggleCompare(candidate) {
@@ -86,6 +92,7 @@ function App() {
     if (comparisonList.length >= 2) {
       setModalType('compare');
       setIsModalOpen(true);
+      document.body.classList.add('no-scroll');
     }
   }
 
@@ -118,8 +125,48 @@ function App() {
     return () => window.removeEventListener('keydown', handler);
   }, []);
 
+  useEffect(() => {
+    const animate = () => {
+      const pos = cursorPosRef.current;
+      const target = cursorTargetRef.current;
+      // linear interpolation for smoothness
+      pos.x += (target.x - pos.x) * 0.15;
+      pos.y += (target.y - pos.y) * 0.15;
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+      }
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    const onMove = (e) => {
+      cursorTargetRef.current = { x: e.clientX, y: e.clientY };
+      // Toggle hover state based on interactive targets
+      const interactive = e.target && (e.target.closest('.btn, .chip, .chip-remove, .search-input, .compare-action, .party-badge, a'));
+      if (interactive) cursorRef.current?.classList.add('btn-hover');
+      else cursorRef.current?.classList.remove('btn-hover');
+    };
+
+    const onDown = () => cursorRef.current?.classList.add('active');
+    const onUp = () => cursorRef.current?.classList.remove('active');
+
+    rafRef.current = requestAnimationFrame(animate);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mousedown', onDown);
+    window.addEventListener('mouseup', onUp);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mousedown', onDown);
+      window.removeEventListener('mouseup', onUp);
+    };
+  }, []);
+
   return (
     <div className="App">
+      <div ref={cursorRef} className="app-cursor" aria-hidden="true">
+        <div className="cursor-ring" />
+        <div className="cursor-dot" />
+      </div>
       <header className="App-header">
         <div className="header-inner">
           <div className="brand">

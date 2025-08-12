@@ -8,6 +8,7 @@
   color: #0f172a;
   position: relative;
   overflow-x: hidden;
+  cursor: none; /* Hide default cursor to use custom */
 }
 
 .App::before,
@@ -52,12 +53,62 @@
 .App-header {
   background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.7));
   backdrop-filter: blur(8px);
-  padding: 36px 20px 18px;
+  padding: 24px 20px 14px;
   color: #0f172a;
   border-bottom: 1px solid rgba(15, 23, 42, 0.06);
   position: sticky;
   top: 0;
   z-index: 10;
+}
+
+.app-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px; /* container size irrelevant */
+  height: 1px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-ring {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 99, 235, 0.35);
+  box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.06);
+  transform: translate(-50%, -50%);
+  transition: transform 140ms ease, width 140ms ease, height 140ms ease, border-color 140ms ease;
+}
+
+.cursor-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #60a5fa, #2563eb);
+  box-shadow: 0 6px 18px rgba(37,99,235,0.25);
+  transform: translate(-50%, -50%);
+  transition: transform 140ms ease, width 140ms ease, height 140ms ease, background 140ms ease;
+}
+
+.app-cursor.btn-hover .cursor-ring {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(99,102,241,0.55);
+}
+
+.app-cursor.btn-hover .cursor-dot {
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 30% 30%, #93c5fd, #3b82f6);
+}
+
+.app-cursor.active .cursor-dot {
+  width: 9px;
+  height: 9px;
 }
 
 .header-inner {
@@ -82,6 +133,11 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.header-inner {
+  gap: 12px;
+  align-items: center;
 }
 
 .brand p {
@@ -303,6 +359,10 @@
   box-shadow: 0 0 0 6px rgba(59,130,246,0.08);
 }
 
+.btn, .chip, .chip-remove, .search-input, .compare-action, .party-badge, a {
+  cursor: none; /* hide default cursor over interactive elements as well */
+}
+
 .btn.primary {
   background: linear-gradient(180deg, #2563eb, #1d4ed8);
   color: white;
@@ -396,6 +456,7 @@
   align-items: center;
   justify-content: center;
   padding: 16px;
+  overflow: auto;
 }
 
 .modal {
