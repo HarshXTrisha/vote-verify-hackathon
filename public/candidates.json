@@ -4,97 +4,304 @@
     "name": "Brijendra Singh Ola",
     "party": "Indian National Congress (INC)",
     "constituency": "JHUNJHUNU (LOK SABHA)",
-    "photo_url": "https://www.myneta.info/images/pics/Brijendra-singh-ola.jpg",
+    "photo_url": "/brijendra-ola.jpg.png",
     "assets_inr": 160284000,
     "liabilities_inr": 32710000,
     "criminal_cases": 0,
     "education": "Post Graduate",
     "myneta_url": "https://www.myneta.info/LokSabha2024/candidate.php?candidate_id=444",
     "note": "Lok Sabha Election 2024",
-    "plainLanguageSummary": "Brijendra Singh Ola (INC) has declared assets of over ₹16 Crore and liabilities of over ₹3.2 Crore. He has 0 criminal cases against him."
+    "plainLanguageSummary": "Brijendra Singh Ola (INC) has declared assets of over ₹16 Crore and liabilities of over ₹3.2 Crore. He has 0 criminal cases against him.",
+    "movable_assets": {
+      "cash": 60000,
+      "bank_deposits": 12423175,
+      "bonds_shares": 515250,
+      "vehicles": 375000,
+      "jewellery": 3206000
+    },
+    "immovable_assets": {
+      "agricultural_land": 3000000,
+      "non_agricultural_land": 16100000,
+      "residential_buildings": 27125000
+    },
+    "profession": "Agriculture & Business",
+    "itr_details": {
+      "labels": ["2019-20", "2020-21", "2021-22", "2022-23", "2023-24"],
+      "income": [1263420, 1623750, 1754810, 2032040, 3778610]
+    }
   },
   {
     "id": 2,
-    "name": "Shubhkaran Choudhary",
-    "party": "Bharatiya Janata Party (BJP)",
-    "constituency": "JHUNJHUNU (LOK SABHA)",
-    "photo_url": "https://www.myneta.info/images/pics/Shubhkaran-Choudhary.jpg",
-    "assets_inr": 92509250,
-    "liabilities_inr": 4989560,
-    "criminal_cases": 5,
-    "education": "12th Pass",
-    "myneta_url": "https://www.myneta.info/LokSabha2024/candidate.php?candidate_id=447",
-    "note": "Lok Sabha Election 2024",
-    "plainLanguageSummary": "Shubhkaran Choudhary (BJP) has declared assets of over ₹9.2 Crore and liabilities of nearly ₹50 Lakhs. He has 5 pending criminal cases against him."
-  },
-  {
-    "id": 3,
-    "name": "Kum. Rita Choudhary",
-    "party": "Indian National Congress (INC)",
-    "constituency": "MANDAWA (ASSEMBLY)",
-    "photo_url": "https://www.myneta.info/images/pics/Kum.-Rita-Choudhary.jpg",
-    "assets_inr": 6417471,
-    "liabilities_inr": 0,
-    "criminal_cases": 0,
-    "education": "Post Graduate",
-    "myneta_url": "https://www.myneta.info/rajasthan2018/candidate.php?candidate_id=3432",
-    "note": "Rajasthan Assembly Election 2018/2023",
-    "plainLanguageSummary": "Kum. Rita Choudhary (INC) has declared assets of over ₹64 Lakhs and has no liabilities. She has 0 criminal cases against her."
-  },
-  {
-    "id": 4,
-    "name": "Nisheet Kumar Alias Bablu Choudhary",
-    "party": "Independent (IND)",
-    "constituency": "JHUNJHUNU (ASSEMBLY)",
-    "photo_url": "https://www.myneta.info/images/pics/Nisheet-Kumar-Alias-Bablu-Choudhary.jpg",
-    "assets_inr": 79148704,
-    "liabilities_inr": 11740500,
-    "criminal_cases": 10,
-    "education": "10th Pass",
-    "myneta_url": "https://www.myneta.info/rajasthan2018/candidate.php?candidate_id=3424",
-    "note": "Rajasthan Assembly Election 2018/2023",
-    "plainLanguageSummary": "Nisheet Kumar (IND) has declared assets of over ₹7.9 Crore and liabilities of over ₹1.1 Crore. He has 10 criminal cases against him."
-  },
-  {
-    "id": 5,
-    "name": "Rajendra Bhamboo",
-    "party": "Bharatiya Janata Party (BJP)",
-    "constituency": "JHUNJHUNU (ASSEMBLY)",
-    "photo_url": "https://www.myneta.info/images/pics/Rajendra-Bhamboo.jpg",
-    "assets_inr": 268471555,
-    "liabilities_inr": 88050991,
-    "criminal_cases": 0,
-    "education": "Post Graduate",
-    "myneta_url": "https://www.myneta.info/Rajasthan2023/candidate.php?candidate_id=1927",
-    "note": "Rajasthan Assembly Bye-Election 2023",
-    "plainLanguageSummary": "Rajendra Bhamboo (BJP) has declared assets of over ₹26.8 Crore and liabilities of over ₹8.8 Crore. He has 0 criminal cases against him."
-  },
-  {
-    "id": 6,
-    "name": "Rajendra Singh Gudha",
-    "party": "Independent (IND)",
-    "constituency": "JHUNJHUNU (ASSEMBLY)",
-    "photo_url": "https://www.myneta.info/images/pics/Rajendra-Singh-Gudha.jpg",
-    "assets_inr": 47415972,
-    "liabilities_inr": 3862522,
-    "criminal_cases": 3,
-    "education": "12th Pass",
-    "myneta_url": "https://www.myneta.info/Rajasthan2023/candidate.php?candidate_id=1926",
-    "note": "Rajasthan Assembly Bye-Election 2023",
-    "plainLanguageSummary": "Rajendra Singh Gudha (IND) has declared assets of over ₹4.7 Crore and liabilities of over ₹38 Lakhs. He has 3 pending criminal cases."
-  },
-  {
-    "id": 7,
     "name": "Narendra Kumar",
     "party": "Bharatiya Janata Party (BJP)",
-    "constituency": "MANDAWA (ASSEMBLY)",
-    "photo_url": "https://www.myneta.info/images/pics/Narendra-Kumar.jpg",
+    "constituency": "MANDAWA (JHUNJHUNU)",
+    "photo_url": "/narendra-kumar.jpg.png",
     "assets_inr": 77220509,
     "liabilities_inr": 3839155,
     "criminal_cases": 1,
     "education": "Graduate",
     "myneta_url": "https://www.myneta.info/Rajasthan2023/candidate.php?candidate_id=301",
     "note": "Rajasthan Assembly Election 2023",
-    "plainLanguageSummary": "Narendra Kumar (BJP) has declared assets of over ₹7.7 Crore and liabilities of over ₹38 Lakhs. He has 1 pending criminal case."
+    "plainLanguageSummary": "Narendra Kumar (BJP) has declared assets of over ₹7.72 Crore and liabilities of about ₹38.3 Lakh. He has 1 criminal case registered against him.",
+    "movable_assets": {
+      "cash": 1066126,
+      "bank_deposits": 719258,
+      "bonds_shares": 45000,
+      "vehicles": 381665,
+      "jewellery": 4108800
+    },
+    "immovable_assets": {
+      "agricultural_land": 29924000,
+      "non_agricultural_land": 23800000
+    },
+    "profession": "Agriculture and Politics",
+    "itr_details": {
+      "labels": ["2018-19", "2019-20", "2020-21", "2021-22", "2022-23"],
+      "income": [308563, 1100115, 1674526, 1298810, 1350492]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Rajendra Bhamboo",
+    "party": "Bharatiya Janata Party (BJP)",
+    "constituency": "JHUNJHUNU (BYE-ELECTION 2024)",
+    "photo_url": "/rajendra-bhamboo.jpg.png",
+    "assets_inr": 286387062,
+    "liabilities_inr": 88050991,
+    "criminal_cases": 0,
+    "education": "Post Graduate",
+    "myneta_url": "https://www.myneta.info/Rajasthan2023/candidate.php?candidate_id=1927",
+    "note": "Rajasthan Assembly Bye-Election 2024",
+    "plainLanguageSummary": "Rajendra Bhamboo (BJP) has declared assets worth over ₹28.63 Crore and liabilities of about ₹8.8 Crore. He has no criminal cases.",
+    "movable_assets": {
+      "cash": 424663,
+      "bank_deposits": 893060,
+      "bonds_shares": 1502190489,
+      "vehicles": 499003,
+      "jewellery": 6500000
+    },
+    "immovable_assets": {
+      "agricultural_land": 13600000,
+      "non_agricultural_land": 24649000,
+      "residential_buildings": 32900000
+    },
+    "profession": "Business",
+    "itr_details": {
+      "labels": ["2018-19", "2019-20", "2020-21", "2021-22", "2022-23"],
+      "income": [17330431, 12138998, 11969705, 16709890, 19902986]
+    }
+  },
+  {
+    "id": 4,
+    "name": "Nisheet Kumar Alias Bablu Choudhary",
+    "party": "Independent (IND)",
+    "constituency": "JHUNJHUNU (JHUNJHUNU)",
+    "photo_url": "/nisheet-kumar.jpg.png",
+    "assets_inr": 41348130,
+    "liabilities_inr": 11740521,
+    "criminal_cases": 10,
+    "education": "10th Pass",
+    "myneta_url": "https://www.myneta.info/rajasthan2018/candidate.php?candidate_id=3424",
+    "note": "Rajasthan Assembly Election 2018",
+    "plainLanguageSummary": "Nisheet Kumar alias Bablu Choudhary (IND) has declared assets of over ₹4.13 Crore and liabilities of about ₹1.17 Crore. He has 10 criminal cases against him.",
+    "movable_assets": {
+      "cash": 605802,
+      "bank_deposits": 529573,
+      "bonds_shares": 3925462,
+      "vehicles": 0,
+      "jewellery": 811000
+    },
+    "immovable_assets": {
+      "agricultural_land": 5600000,
+      "commercial_buildings": 10000000,
+      "residential_buildings": 6800000
+    },
+    "profession": "Business – Dairy & Real Estate",
+    "itr_details": {
+      "labels": ["2017-18"],
+      "income": [1001516]
+    }
+  },
+  {
+    "id": 5,
+    "name": "Rajendra Singh Gudha",
+    "party": "Independent (IND)",
+    "constituency": "JHUNJHUNU (BYE-ELECTION 2024)",
+    "photo_url": "/rajendra-singh-gudha.jpg.png",
+    "assets_inr": 47415972,
+    "liabilities_inr": 3862522,
+    "criminal_cases": 3,
+    "education": "12th Pass",
+    "myneta_url": "https://www.myneta.info/Rajasthan2023/candidate.php?candidate_id=1926",
+    "note": "Rajasthan Assembly Bye-Election 2024",
+    "plainLanguageSummary": "Rajendra Singh Gudha (IND) has declared assets of about ₹4.74 Crore and liabilities of about ₹38.6 Lakh. He has 3 criminal cases against him.",
+    "movable_assets": {
+      "cash": 113000,
+      "bank_deposits": 1212282,
+      "bonds_shares": 0,
+      "vehicles": 5233620,
+      "jewellery": 3656500
+    },
+    "immovable_assets": {
+      "agricultural_land": 980000,
+      "commercial_buildings": 27900000,
+      "residential_buildings": 7800000
+    },
+    "profession": "MLA Pension & Construction Business",
+    "itr_details": {
+      "labels": ["2019-20", "2020-21", "2021-22", "2022-23", "2023-24"],
+      "income": [951950, 564700, 2237510, 2095700, 1866313]
+    }
+  },
+  {
+    "id": 6,
+    "name": "Kum. Rita Choudhary",
+    "party": "Indian National Congress (INC)",
+    "constituency": "MANDAWA (JHUNJHUNU)",
+    "photo_url": "/rita-choudhary.jpg.png",
+    "assets_inr": 4180991,
+    "liabilities_inr": 0,
+    "criminal_cases": 0,
+    "education": "Post Graduate",
+    "myneta_url": "https://www.myneta.info/rajasthan2018/candidate.php?candidate_id=3432",
+    "note": "Rajasthan Assembly Election 2018",
+    "plainLanguageSummary": "Kum. Rita Choudhary (INC) has declared assets worth about ₹41.8 Lakh and has no liabilities or criminal cases.",
+    "movable_assets": {
+      "cash": 50000,
+      "bank_deposits": 636356,
+      "bonds_shares": 0,
+      "vehicles": 1091000,
+      "jewellery": 95000
+    },
+    "immovable_assets": {
+      "agricultural_land": 1000000,
+      "non_agricultural_land": 805000
+    },
+    "profession": "Former MLA Pensions & Agriculture",
+    "itr_details": {
+      "labels": ["2017-18"],
+      "income": [301478]
+    }
+  },
+  {
+    "id": 7,
+    "name": "Sharwan Kumar",
+    "party": "Indian National Congress (INC)",
+    "constituency": "SURAJGARH (JHUNJHUNU)",
+    "photo_url": "/sharwan-kumar.jpg.png",
+    "assets_inr": 22159920,
+    "liabilities_inr": 8179500,
+    "criminal_cases": 0,
+    "education": "10th Pass",
+    "myneta_url": "https://myneta.info/Rajasthan2023/candidate.php?candidate_id=421",
+    "note": "Rajasthan Assembly Election 2023",
+    "plainLanguageSummary": "Sharwan Kumar (INC) has declared assets worth over ₹2.21 Crore and liabilities of ₹81.8 Lakh. No criminal cases.",
+    "movable_assets": {
+      "cash": 41131,
+      "bank_deposits": 12247000,
+      "bonds_shares": 0,
+      "jewellery": 133705
+    },
+    "immovable_assets": {
+      "agricultural_land": 3270240,
+      "non_agricultural_land": 1454400,
+      "residential_buildings": 4931754
+    },
+    "profession": "Pension & Farming",
+    "itr_details": {
+      "labels": ["2018-19", "2019-20", "2020-21", "2021-22", "2022-23"],
+      "income": [349700, 470190, 755750, 754000, 751360]
+    }
+  },
+  {
+    "id": 8,
+    "name": "Narendra Modi",
+    "party": "Bharatiya Janata Party (BJP)",
+    "constituency": "VARANASI (UTTAR PRADESH)",
+    "photo_url": "/narendra-modi.jpg.png",
+    "assets_inr": 30206889,
+    "liabilities_inr": 0,
+    "criminal_cases": 0,
+    "education": "Post Graduate",
+    "myneta_url": "https://myneta.info/LokSabha2024/candidate.php?candidate_id=8974",
+    "note": "Lok Sabha Election 2024",
+    "plainLanguageSummary": "Narendra Modi (BJP) has declared assets of about ₹3.02 Crore. He has no liabilities and no criminal cases.",
+    "movable_assets": {
+      "cash": 52920,
+      "bank_deposits": 28603398,
+      "nsc_postal_savings": 912398,
+      "jewellery": 267750,
+      "other_assets": 333179
+    },
+    "immovable_assets": {},
+    "profession": "Public Life, Political Activity",
+    "itr_details": {
+      "labels": ["2018-19", "2019-20", "2020-21", "2021-22", "2022-23"],
+      "income": [1114230, 1720760, 1707930, 1541870, 2356080]
+    }
+  },
+  {
+    "id": 9,
+    "name": "Rahul Gandhi",
+    "party": "Indian National Congress (INC)",
+    "constituency": "WAYANAD (KERALA)",
+    "photo_url": "/rahul-gandhi.jpg.png",
+    "assets_inr": 203961862,
+    "liabilities_inr": 4979184,
+    "criminal_cases": 18,
+    "education": "Post Graduate",
+    "myneta_url": "https://myneta.info/LokSabha2024/candidate.php?candidate_id=2195",
+    "note": "Lok Sabha Election 2024",
+    "plainLanguageSummary": "Rahul Gandhi (INC) has declared assets of over ₹20.39 Crore and liabilities of about ₹49.8 Lakh. He has 18 criminal cases.",
+    "movable_assets": {
+      "cash": 55000,
+      "bank_deposits": 2625157,
+      "bonds_shares": 83205831,
+      "ppf": 6152426,
+      "jewellery": 420850
+    },
+    "immovable_assets": {
+      "agricultural_land": 21013598,
+      "commercial_buildings": 90489000
+    },
+    "profession": "Member of Parliament",
+    "itr_details": {
+      "labels": ["2018-19", "2019-20", "2020-21", "2021-22", "2022-23"],
+      "income": [12037700, 12154470, 12931110, 13104970, 10278680]
+    }
+  },
+  {
+    "id": 10,
+    "name": "Santosh Ahlawat",
+    "party": "Bharatiya Janata Party (BJP)",
+    "constituency": "JHUNJHUNU (RAJASTHAN)",
+    "photo_url": "/santosh-ahlawat.jpg.png",
+    "assets_inr": 35897048,
+    "liabilities_inr": 5704000,
+    "criminal_cases": 0,
+    "education": "Post Graduate",
+    "myneta_url": "https://myneta.info/ls2014/candidate.php?candidate_id=2332",
+    "note": "Lok Sabha Election 2014",
+    "plainLanguageSummary": "Santosh Ahlawat (BJP) has declared assets of about ₹3.59 Crore and liabilities of ₹57.04 Lakh. She has no criminal cases.",
+    "movable_assets": {
+      "cash": 146387,
+      "bank_deposits": 419228,
+      "postal_savings": 777000,
+      "personal_loans_given": 8058194,
+      "vehicles": 3639650,
+      "jewellery": 750000
+    },
+    "immovable_assets": {
+      "agricultural_land": 3000000,
+      "non_agricultural_land": 9000000,
+      "commercial_buildings": 1000000,
+      "residential_buildings": 4500000,
+      "others": 4600000
+    },
+    "profession": "Rent, Tuition",
+    "itr_details": {
+      "labels": ["2012-13"],
+      "income": [3208207]
+    }
   }
 ]
