@@ -44,21 +44,24 @@
     "note": "Rajasthan Assembly Election 2023",
     "plainLanguageSummary": "Narendra Kumar (BJP) has declared assets of over ₹7.72 Crore and liabilities of about ₹38.3 Lakh. He has 1 criminal case registered against him.",
     "movable_assets": {
-      "cash": 1066126,
-      "bank_deposits": 719258,
-      "bonds_shares": 45000,
-      "vehicles": 381665,
+      "cash": 1067126,
+      "bank_deposits": 5214837,
+      "insurance_policies": 1448407,
+      "vehicles": 1204170,
       "jewellery": 4108800
     },
     "immovable_assets": {
-      "agricultural_land": 29924000,
+      "agricultural_land": 20884000,
       "non_agricultural_land": 23800000
     },
     "profession": "Agriculture and Politics",
     "itr_details": {
       "labels": ["2018-19", "2019-20", "2020-21", "2021-22", "2022-23"],
       "income": [308563, 1100115, 1674526, 1298810, 1350492]
-    }
+    },
+    "criminal_case_details": [
+      { "case_no": "FIR No. 164/2018", "charge": "IPC Sections 143, 341, 323, 336, 504" }
+    ]
   },
   {
     "id": 3,
@@ -74,15 +77,16 @@
     "note": "Rajasthan Assembly Bye-Election 2024",
     "plainLanguageSummary": "Rajendra Bhamboo (BJP) has declared assets worth over ₹28.63 Crore and liabilities of about ₹8.8 Crore. He has no criminal cases.",
     "movable_assets": {
-      "cash": 424663,
-      "bank_deposits": 893060,
-      "bonds_shares": 1502190489,
+      "cash": 4244663,
+      "bank_deposits": 8504548,
+      "bonds_shares": 159934159,
       "vehicles": 499003,
-      "jewellery": 6500000
+      "jewellery": 6505000
     },
     "immovable_assets": {
-      "agricultural_land": 13600000,
+      "agricultural_land": 6900000,
       "non_agricultural_land": 24649000,
+      "commercial_buildings": 5350000,
       "residential_buildings": 32900000
     },
     "profession": "Business",
@@ -97,8 +101,8 @@
     "party": "Independent (IND)",
     "constituency": "JHUNJHUNU (JHUNJHUNU)",
     "photo_url": "/nisheet-kumar.jpg.png",
-    "assets_inr": 41348130,
-    "liabilities_inr": 11740521,
+    "assets_inr": 41348136,
+    "liabilities_inr": 11740500,
     "criminal_cases": 10,
     "education": "10th Pass",
     "myneta_url": "https://www.myneta.info/rajasthan2018/candidate.php?candidate_id=3424",
@@ -106,9 +110,9 @@
     "plainLanguageSummary": "Nisheet Kumar alias Bablu Choudhary (IND) has declared assets of over ₹4.13 Crore and liabilities of about ₹1.17 Crore. He has 10 criminal cases against him.",
     "movable_assets": {
       "cash": 605802,
-      "bank_deposits": 529573,
-      "bonds_shares": 3925462,
-      "vehicles": 0,
+      "bank_deposits": 125332,
+      "bonds_shares": 5092000,
+      "insurance_policies": 1123844,
       "jewellery": 811000
     },
     "immovable_assets": {
@@ -116,11 +120,18 @@
       "commercial_buildings": 10000000,
       "residential_buildings": 6800000
     },
-    "profession": "Business – Dairy & Real Estate",
+    "profession": "Business – Parthvi Dairy Product",
     "itr_details": {
       "labels": ["2017-18"],
       "income": [1001516]
-    }
+    },
+    "criminal_case_details": [
+      { "case_no": "FIR No. 355/1997", "charge": "IPC 452, 323, 324, 325, 147 (Charges Framed)" },
+      { "case_no": "FIR No. 422/2007", "charge": "IPC 174A (Cognizance Taken)" },
+      { "case_no": "Case No. 31/94", "charge": "IPC 147 (Convicted)" },
+      { "case_no": "Case No. 310/1996", "charge": "Section 3/25 Arms Act (Convicted)" },
+      { "case_no": "Case No. 201/98", "charge": "IPC 147, 323 (Convicted)" }
+    ]
   },
   {
     "id": 5,
@@ -136,11 +147,11 @@
     "note": "Rajasthan Assembly Bye-Election 2024",
     "plainLanguageSummary": "Rajendra Singh Gudha (IND) has declared assets of about ₹4.74 Crore and liabilities of about ₹38.6 Lakh. He has 3 criminal cases against him.",
     "movable_assets": {
-      "cash": 113000,
+      "cash": 133000,
       "bank_deposits": 1212282,
-      "bonds_shares": 0,
+      "insurance_policies": 200000,
       "vehicles": 5233620,
-      "jewellery": 3656500
+      "jewellery": 3646500
     },
     "immovable_assets": {
       "agricultural_land": 980000,
@@ -151,7 +162,12 @@
     "itr_details": {
       "labels": ["2019-20", "2020-21", "2021-22", "2022-23", "2023-24"],
       "income": [951950, 564700, 2237510, 2095700, 1866313]
-    }
+    },
+    "criminal_case_details": [
+      { "case_no": "FIR No. 164/2024", "charge": "IPC 109, 145, 147, 148, 149, 283, 307 etc." },
+      { "case_no": "FIR No. 429/2023", "charge": "IPC 143, 323, 341, 382 & SC/ST Act" },
+      { "case_no": "FIR No. 032/2023", "charge": "IPC 143, 323, 347, 365, 504, 506" }
+    ]
   },
   {
     "id": 6,
@@ -169,7 +185,7 @@
     "movable_assets": {
       "cash": 50000,
       "bank_deposits": 636356,
-      "bonds_shares": 0,
+      "insurance_policies": 490904,
       "vehicles": 1091000,
       "jewellery": 95000
     },
@@ -193,13 +209,12 @@
     "liabilities_inr": 8179500,
     "criminal_cases": 0,
     "education": "10th Pass",
-    "myneta_url": "https://myneta.info/Rajasthan2023/candidate.php?candidate_id=421",
+    "myneta_url": "https://www.myneta.info/Rajasthan2023/candidate.php?candidate_id=421",
     "note": "Rajasthan Assembly Election 2023",
     "plainLanguageSummary": "Sharwan Kumar (INC) has declared assets worth over ₹2.21 Crore and liabilities of ₹81.8 Lakh. No criminal cases.",
     "movable_assets": {
       "cash": 41131,
-      "bank_deposits": 12247000,
-      "bonds_shares": 0,
+      "bank_deposits": 12242821,
       "jewellery": 133705
     },
     "immovable_assets": {
@@ -228,7 +243,7 @@
     "plainLanguageSummary": "Narendra Modi (BJP) has declared assets of about ₹3.02 Crore. He has no liabilities and no criminal cases.",
     "movable_assets": {
       "cash": 52920,
-      "bank_deposits": 28603398,
+      "bank_deposits": 2860338,
       "nsc_postal_savings": 912398,
       "jewellery": 267750,
       "other_assets": 333179
@@ -268,7 +283,14 @@
     "itr_details": {
       "labels": ["2018-19", "2019-20", "2020-21", "2021-22", "2022-23"],
       "income": [12037700, 12154470, 12931110, 13104970, 10278680]
-    }
+    },
+    "criminal_case_details": [
+      { "case_no": "FIR No. 240/2021", "charge": "IPC 228A, POCSO Act, Juvenile Justice Act" },
+      { "case_no": "FIR No. 0362/2022", "charge": "IPC 34, 120B, 403, 465, Copyright & IT Act" },
+      { "case_no": "Complaint No. 311/SS/2023", "charge": "IPC 499, 500 (Defamation)" },
+      { "case_no": "Complaint No. 559/2016", "charge": "IPC 499, 500 (Defamation)" },
+      { "case_no": "Complaint No. 18/2019", "charge": "IPC 403, 406, 420, 120B (Breach of Trust, Cheating)" }
+    ]
   },
   {
     "id": 10,
