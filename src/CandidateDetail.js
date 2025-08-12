@@ -127,6 +127,9 @@ function CandidateDetail({ candidates, stats }) {
             </span>
             Share Profile
           </button>
+          <div style={{ flexBasis: '100%', width: '100%' }}>
+            <IncomeChart itrDetails={candidate.itr_details || {}} height={320} />
+          </div>
         </div>
       </div>
 

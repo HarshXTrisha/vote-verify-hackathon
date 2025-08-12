@@ -1041,3 +1041,66 @@
   height: 14px;
   display: block;
 }
+
+/* Global box sizing for predictable layout */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Ensure common flex containers can wrap to prevent overlap */
+.actions, .card-header, .detail-sub-row { flex-wrap: wrap; }
+
+/* Typography should wrap rather than overflow */
+.candidate-name, .th-name, .hero-title, .summary, .section-title { 
+  overflow-wrap: anywhere; 
+  word-break: break-word; 
+}
+
+/* Mobile-first responsiveness tweaks */
+@media (max-width: 767px) {
+  /* App padding on mobile */
+  .App { padding-left: 10px; padding-right: 10px; }
+
+  /* Header adjustments */
+  .header-inner { flex-wrap: wrap; align-items: center; gap: 8px; }
+  .brand h1 { font-size: 20px; }
+  .brand p { font-size: 12px; }
+  .actions { width: 100%; justify-content: space-between; gap: 8px; }
+  .search-wrapper { flex: 1 1 100%; }
+  .search-input { width: 100%; max-width: 100%; }
+
+  /* Candidate list stacks vertically */
+  .candidate-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    padding-left: 4px; 
+    padding-right: 4px; 
+  }
+  .candidate-card { 
+    width: 92%; 
+    margin-left: auto; 
+    margin-right: auto; 
+  }
+
+  /* Card header content can wrap */
+  .card-header { gap: 10px; }
+  .title-row { flex-wrap: wrap; gap: 8px; }
+
+  /* Detail page: collapse into single column and scale hero */
+  .detail-hero { grid-template-columns: 72px 1fr; gap: 10px; }
+  .detail-photo { width: 72px; height: 72px; }
+  .grid-container, .detail-grid { grid-template-columns: 1fr !important; }
+  .detail-section { margin-bottom: 10px; }
+
+  /* Comparison mobile table scrolling safety */
+  .compare-table-wrapper { overflow-x: auto; }
+
+  /* Modal sizing safety on small screens */
+  .modal { width: 90vw; }
+}
+
+/* Stack charts vertically on mobile (<=768px) */
+@media (max-width: 768px) {
+  .charts-container {
+    flex-direction: column;
+  }
+}
