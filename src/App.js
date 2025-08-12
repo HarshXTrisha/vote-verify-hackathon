@@ -15,10 +15,15 @@ function App() {
   const searchInputRef = useRef(null);
   const [sortBy, setSortBy] = useState('relevance'); // 'relevance' | 'assets_desc' | 'assets_asc' | 'name_asc'
   const [partyFilter, setPartyFilter] = useState('all'); // 'all' | 'inc' | 'bjp'
-  const cursorRef = useRef(null);
-  const cursorPosRef = useRef({ x: 0, y: 0 });
-  const cursorTargetRef = useRef({ x: 0, y: 0 });
-  const rafRef = useRef(0);
+  // Removed custom cursor
+  const headerRef = useRef(null);
+  const todayString = useMemo(() => {
+    try {
+      return new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' });
+    } catch (e) {
+      return new Date().toISOString().slice(0, 10);
+    }
+  }, []);
 
   useEffect(() => {
     setIsLoading(true);
@@ -63,6 +68,14 @@ function App() {
     }
     return list;
   }, [filteredCandidates, partyFilter, sortBy]);
+
+  // Global statistics across all candidates
+  const stats = useMemo(() => {
+    const count = candidates.length;
+    const sumAssets = candidates.reduce((sum, c) => sum + (Number(c.assets_inr) || 0), 0);
+    const averageAssets = count > 0 ? sumAssets / count : 0;
+    return { count, averageAssets };
+  }, [candidates]);
 
   function openSummary(candidate) {
     setSelectedCandidate(candidate);
@@ -125,55 +138,41 @@ function App() {
     return () => window.removeEventListener('keydown', handler);
   }, []);
 
+  // Removed custom cursor effects
+
+  // Elevate header on scroll for better visual depth
   useEffect(() => {
-    const animate = () => {
-      const pos = cursorPosRef.current;
-      const target = cursorTargetRef.current;
-      // linear interpolation for smoothness
-      pos.x += (target.x - pos.x) * 0.15;
-      pos.y += (target.y - pos.y) * 0.15;
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
-      }
-      rafRef.current = requestAnimationFrame(animate);
+    const onScroll = () => {
+      const el = headerRef.current;
+      if (!el) return;
+      if (window.scrollY > 8) el.classList.add('elevated');
+      else el.classList.remove('elevated');
     };
-
-    const onMove = (e) => {
-      cursorTargetRef.current = { x: e.clientX, y: e.clientY };
-      // Toggle hover state based on interactive targets
-      const interactive = e.target && (e.target.closest('.btn, .chip, .chip-remove, .search-input, .compare-action, .party-badge, a'));
-      if (interactive) cursorRef.current?.classList.add('btn-hover');
-      else cursorRef.current?.classList.remove('btn-hover');
-    };
-
-    const onDown = () => cursorRef.current?.classList.add('active');
-    const onUp = () => cursorRef.current?.classList.remove('active');
-
-    rafRef.current = requestAnimationFrame(animate);
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mousedown', onDown);
-    window.addEventListener('mouseup', onUp);
-    return () => {
-      cancelAnimationFrame(rafRef.current);
-      window.removeEventListener('mousemove', onMove);
-      window.removeEventListener('mousedown', onDown);
-      window.removeEventListener('mouseup', onUp);
-    };
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
   return (
     <div className="App">
-      <div ref={cursorRef} className="app-cursor" aria-hidden="true">
-        <div className="cursor-ring" />
-        <div className="cursor-dot" />
-      </div>
-      <header className="App-header">
+      {/* default cursor restored */}
+      <header ref={headerRef} className="App-header">
         <div className="header-inner">
           <div className="brand">
             <Link to="/" style={{ textDecoration: 'none' }}>
-              <h1>VoteVerify</h1>
+              <div className="brand-row">
+                <span className="logo-mark" aria-hidden="true">
+                  <img 
+                    src="/Gemini_Generated_Image_ngtua4ngtua4ngtu.png" 
+                    alt="Jan Saarthi Logo" 
+                    width="1024" 
+                    height="1024"
+                    style={{ objectFit: 'contain' }}
+                  />
+                </span>
+                <h1>Jan Saarthi</h1>
+              </div>
             </Link>
-            <p>Search and compare candidate affidavits</p>
+            <p>Your guide to informed voting decisions</p>
           </div>
           <div className="actions">
             <div className="search-wrapper">
@@ -200,6 +199,11 @@ function App() {
                 </button>
               )}
             </div>
+            {comparisonList.length >= 2 && (
+              <button className="btn primary header-compare" onClick={openCompare}>
+                Compare ({comparisonList.length})
+              </button>
+            )}
           </div>
         </div>
       </header>
@@ -282,6 +286,7 @@ function App() {
                       onQuickSummary={openSummary}
                       onToggleCompare={toggleCompare}
                       isCompared={comparisonList.some(c => c.id === candidate.id)}
+                      stats={stats}
                     />
                   ))}
                 </div>
@@ -289,7 +294,7 @@ function App() {
             </>
           }
         />
-        <Route path="/candidate/:id" element={<CandidateDetail candidates={candidates} />} />
+        <Route path="/candidate/:id" element={<CandidateDetail candidates={candidates} stats={stats} />} />
       </Routes>
 
       {isModalOpen && modalType === 'summary' && selectedCandidate && (
@@ -440,6 +445,19 @@ function App() {
           </button>
         </div>
       )}
+
+      <footer className="site-footer">
+        <div className="footer-inner">
+          <span>Data last updated on: {todayString}</span>
+          <a
+            href={
+              `mailto:report@janssaarthi.app?subject=${encodeURIComponent('Issue Report: Jan Saarthi')}&body=${encodeURIComponent('Describe the issue you found:\n\nPage/URL: \nSteps to reproduce: \nExpected result: \nActual result: \nScreenshots (if any): ')}`
+            }
+          >
+            Report an Issue
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }

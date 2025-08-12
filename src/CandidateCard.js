@@ -11,12 +11,19 @@ function formatCurrencyINR(value) {
   }
 }
 
-function CandidateCard({ candidate, onQuickSummary, onToggleCompare, isCompared }) {
+function CandidateCard({ candidate, onQuickSummary, onToggleCompare, isCompared, stats }) {
   const assetsFormatted = `₹${formatCurrencyINR(candidate.assets_inr)}`;
   const liabilitiesFormatted = `₹${formatCurrencyINR(candidate.liabilities_inr)}`;
   const hasCriminalCases = Number(candidate.criminal_cases) > 0;
   const partyClass = (candidate.party || '').toLowerCase().includes('congress') ? 'inc' :
                      (candidate.party || '').toLowerCase().includes('bjp') ? 'bjp' : '';
+  const badges = [];
+  if (stats && Number(candidate.assets_inr) > 2 * stats.averageAssets) {
+    badges.push({ label: 'High Assets', type: 'asset' });
+  }
+  if (Number(candidate.criminal_cases) > 2) {
+    badges.push({ label: 'High Criminal Case Count', type: 'case' });
+  }
 
   return (
     <div className="candidate-card">
@@ -37,6 +44,13 @@ function CandidateCard({ candidate, onQuickSummary, onToggleCompare, isCompared 
         </div>
 
         <div className="candidate-stats">
+          {badges.length > 0 && (
+            <div className="badge-row">
+              {badges.map((b, i) => (
+                <span key={i} className={`insight-badge ${b.type}`}>{b.label}</span>
+              ))}
+            </div>
+          )}
           <div className="stat-pill">
             <span className="stat-label">Assets</span>
             <span className="stat-value">{assetsFormatted}</span>

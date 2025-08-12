@@ -7,7 +7,7 @@ import IncomeChart from './IncomeChart';
 // Helper function to format numbers into the Indian Rupee system (e.g., 1,00,000)
 const formatRupees = (value) => value ? `₹${value.toLocaleString('en-IN')}` : 'N/A';
 
-function CandidateDetail({ candidates }) {
+function CandidateDetail({ candidates, stats }) {
   const { id } = useParams();
   const candidate = candidates.find(c => c.id === parseInt(id));
   const partyClass = (candidate?.party || '').toLowerCase().includes('congress') ? 'inc' :
@@ -42,6 +42,14 @@ function CandidateDetail({ candidates }) {
         <div className="grid-container">
           <div className="detail-section">
             <h2 className="section-title">Overview</h2>
+            <div className="badge-row">
+              {stats && Number(candidate.assets_inr) > 2 * stats.averageAssets && (
+                <span className="insight-badge asset">High Assets</span>
+              )}
+              {Number(candidate.criminal_cases) > 2 && (
+                <span className="insight-badge case">High Criminal Case Count</span>
+              )}
+            </div>
             <p><strong>Assets:</strong> {formatRupees(candidate.assets_inr)}</p>
             <p><strong>Liabilities:</strong> {formatRupees(candidate.liabilities_inr)}</p>
             <p><strong>Criminal cases:</strong> {candidate.criminal_cases}</p>
