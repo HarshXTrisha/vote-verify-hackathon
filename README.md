@@ -6,6 +6,10 @@ Digital Independence for Informed Democracy
 
 ## Overview
 Jan Saarthi empowers voters with clean, verifiable, and comparable candidate data. It turns complex affidavits into a modern, mobile-friendly experience with AI summaries and rich visualizations.
+##The Problem: A Crisis of Trust
+
+In August 2025, the national conversation was dominated by the "vote chori" (vote theft) controversy, exposing what the Supreme Court has called a "trust deficit" in our electoral process. Voters are caught between high-profile political allegations and complex, scattered data, making it nearly impossible to form an independent, fact-based opinion. **This is not a political problem; it's an information problem.**
+
 
 Built for the IIMB BBA(DBE) Vibecoding Hackathon (Independence Day Edition) under the theme: "Digital Independence - Innovating for a Better Tomorrow."
 
