@@ -96,3 +96,4 @@ MIT
 - Election Commission of India (ECI) and MyNeta
 - IIMB BBA(DBE) Vibecoding Hackathon
 - Cursor AI for development assistance
+- Thank you to the IIMB BBA(DBE) program for organizing this hackathon.
