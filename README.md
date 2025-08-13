@@ -6,31 +6,36 @@ Digital Independence for Informed Democracy
 
 ## Overview
 Jan Saarthi empowers voters with clean, verifiable, and comparable candidate data. It turns complex affidavits into a modern, mobile-friendly experience with AI summaries and rich visualizations.
-##The Problem: A Crisis of Trust
 
+The Problem: A Crisis of Trust
 In August 2025, the national conversation was dominated by the "vote chori" (vote theft) controversy, exposing what the Supreme Court has called a "trust deficit" in our electoral process. Voters are caught between high-profile political allegations and complex, scattered data, making it nearly impossible to form an independent, fact-based opinion. **This is not a political problem; it's an information problem.**
 
 
 Built for the IIMB BBA(DBE) Vibecoding Hackathon (Independence Day Edition) under the theme: "Digital Independence - Innovating for a Better Tomorrow."
 
-## Features
-- Detailed candidate profiles: assets, liabilities, education, profession, criminal cases, affidavits
-- Visualizations: asset breakdown (pie), income history (bar)
-- AI summaries: plain-language highlights for each candidate
-- Side-by-side comparison: compare candidates on key metrics
-- Criminal case modal: view details, if any
-- Direct affidavit links: verify instantly via official documents
-- Language toggle: English/Hindi with animated segmented control
-- Hindi display names: localized candidate names when Hindi is selected
-- WhatsApp sharing: share individual profiles and comparison view
-- Social link preview: Open Graph/Twitter Card set to custom app logo
+✨ Key Features
 
-## Tech Stack
-- React (Create React App), React Router
-- Chart.js
-- i18next + react-i18next + i18next-http-backend
-- Custom CSS
-- Deployed on Vercel
+* **📊 Data Visualizations:** Interactive pie charts for asset breakdowns and bar charts for year-over-year income history.
+* **🤖 AI-Powered Summaries:** Plain-language summaries of each candidate's profile.
+* **⚖️ Side-by-Side Comparison:** A powerful tool to directly compare two candidates on key metrics.
+* **📂 Detailed Criminal Case Modal:** A pop-up that displays the specific details of any reported criminal charges.
+* **🔗 Direct Affidavit Links:** Every piece of data is verifiable with a single click to the official source document.
+* **🌐 English/Hindi Toggle:** An animated language switcher for greater accessibility.
+* **📱 Fully Responsive Design:** A clean interface that works perfectly on desktop and mobile.
+* **🚀 WhatsApp Sharing:** Share individual profiles and comparison views directly to WhatsApp.
+* **🖼️ Social Link Previews:** Professional-looking link previews when sharing on social media (Open Graph/Twitter Cards).
+
+---
+
+### 🛠️ Tech Stack
+
+* **Frontend:** React, React Router
+* **Charting:** Chart.js (`react-chartjs-2`)
+* **Internationalization:** `i18next` & `react-i18next`
+* **Styling:** Custom CSS
+* **Deployment:** Vercel
+* **AI Integration:** Used for generating summaries during data preparation.
+* **Development Assistant:** Cursor AI (Free Tier), Gemini
 
 ## Getting Started
 Prerequisites: Node.js 14+
