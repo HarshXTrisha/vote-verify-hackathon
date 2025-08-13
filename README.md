@@ -15,6 +15,7 @@ Built for the IIMB BBA(DBE) Vibecoding Hackathon (Independence Day Edition) unde
 
 ✨ Key Features
 
+ **⭐ Insight Badges:** Automatic alerts for key data points like 'High Criminal Case Count' or 'High Assets', making it easy to spot important information at a glance.
 * **📊 Data Visualizations:** Interactive pie charts for asset breakdowns and bar charts for year-over-year income history.
 * **🤖 AI-Powered Summaries:** Plain-language summaries of each candidate's profile.
 * **⚖️ Side-by-Side Comparison:** A powerful tool to directly compare two candidates on key metrics.
