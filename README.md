@@ -6,6 +6,7 @@ Digital Independence for Informed Democracy
 
 ## Overview
 Jan Saarthi empowers voters with clean, verifiable, and comparable candidate data. It turns complex affidavits into a modern, mobile-friendly experience with AI summaries and rich visualizations.
+
 Built for the IIMB BBA(DBE) Vibecoding Hackathon (Independence Day Edition) under the theme: "Digital Independence - Innovating for a Better Tomorrow."
 
 
@@ -15,7 +16,7 @@ In August 2025, the national conversation was dominated by the "vote chori" (vot
 
 ✨ Key Features
 
- **⭐ Insight Badges:** Automatic alerts for key data points like 'High Criminal Case Count' or 'High Assets', making it easy to spot important information at a glance.
+* **⭐ Insight Badges:** Automatic alerts for key data points like 'High Criminal Case Count' or 'High Assets', making it easy to spot important information at a glance.
 * **📊 Data Visualizations:** Interactive pie charts for asset breakdowns and bar charts for year-over-year income history.
 * **🤖 AI-Powered Summaries:** Plain-language summaries of each candidate's profile.
 * **⚖️ Side-by-Side Comparison:** A powerful tool to directly compare two candidates on key metrics.
